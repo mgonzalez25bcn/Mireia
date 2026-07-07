@@ -102,4 +102,4 @@ Number(document.getElementById('edadConcierto').value)
 
     let precioTotal = precioEntrada * numEntradas
     precio.innerHTML = "Tus " + numEntradas + " entradas cuestan: " + precioTotal + "€"
-  }
+  } 
