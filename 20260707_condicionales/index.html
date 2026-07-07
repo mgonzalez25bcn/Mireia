@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilos.css">
+  <title>Condicionales</title>
+</head>
+<body>
+  <main>
+    <section class="zona-disco">
+      <h1>Disco</h1>
+      <label for="edadDisco">¿Edad?</label>
+      <input type="number" id="edadDisco" autocomplete="off">
+      <button type="submit" onclick="verificarEdadDisco()">Verificar edad</button>
+      <p id="comentario-edad"></p>
+    </section>
+
+    <section class="zona-concierto">
+      <h1>Concierto</h1>
+      <label for="entradaConcierto">¿Tienes entrada?</label>
+      <input type="radio" id="concierto-si" name="entradaConcierto" value="si">
+      <label for="concierto-si">Sí</label>
+      <input type="radio" id="concierto-no" name="entradaConcierto" value="no" checked>
+      <label for="concierto-no">No</label>
+
+      <input type="text" id="edadConcierto" placeholder="Escribe tu edad" autocomplete="off">
+      <button type="submit" onclick="verificarEdadConcierto()">Verificar</button>
+      <p id="comentario-concierto"></p>
+    </section>
+
+    <section class="idioma">
+      <h1>Idioma</h1>
+      <label for="idioma">Selecciona un idioma:</label>
+      <!-- <select id="idioma">
+        <option value="es">Español</option>
+        <option value="en">Inglés</option>
+        <option value="fr">Francés</option>
+        <option value="it">Italiano</option>
+      </select>
+      <button type="submit" onclick="Saludar()">Saludar</button>
+      <p id="saludo"></p> -->
+      <button type="button" onclick="Saludar('es')">Español</button>
+      <button type="button" onclick="Saludar('en')">Inglés</button>
+      <button type="button" onclick="Saludar('fr')">Francés</button>
+      <button type="button" onclick="Saludar('it')">Italiano</button>
+      <p id="saludo"></p>
+    </section>
+
+      <section class="zona-precio">
+      <h1>Precio</h1>
+
+
+      <label for="edadEntradas">¿Edad?</label>
+      <input type="number" id="edadEntradas" autocomplete="off">
+      <label for="numEntradas">¿Número de entradas?</label>
+      <input type="number" id="numEntradas" autocomplete="off">
+      <button type="submit" onclick="calcularPrecio()">Calcular precio</button>
+      <p id="precio"></p>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
