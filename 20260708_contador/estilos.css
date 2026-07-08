@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color:  rgb(255, 200, 208);
+  background-size: cover;
+  color: rgb(54, 54, 54);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+main {
+  text-align: center;
+  background-color: beige;
+  color: black;
+  border-radius: 20px;
+  padding: 20px;
+  width: 300px;
+  margin: 40 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 1.1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgb(255, 200, 208);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(255, 100, 144);
+  color: black;
+}
+
+#mensaje {
+  /* display: none; */
+  margin-top: 0.5em;
+  font-size: 1.2em;
+  /* color: #333; */
+}
+
+.rosa {
+  color: rgb(246, 25, 62);
+}
+
+.naranja {
+  color: orange;
+}
