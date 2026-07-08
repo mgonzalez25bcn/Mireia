@@ -10,7 +10,7 @@ const btnReset = document.getElementById('btn-reset')
 const MAX = 10
 const MIN = 0
 
-//Estado
+//Estado 
 let personas = 0
 
 //Listeners

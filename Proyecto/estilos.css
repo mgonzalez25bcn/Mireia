@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(img/Alchemistslab.jpg);
+  background-position: center;
+  background-size: cover;
+  /* color: rgb(54, 54, 54); */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: 100vh; */
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  /* margin-bottom: 2rem; */
+  color: rgb(1, 101, 53);
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
