@@ -16,8 +16,6 @@
 
 <body>
   <header>
-    <!-- Nombre de la startup -->
-    <h1>La tienda del alquimista</h1>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -37,9 +35,11 @@
     </nav>
   </header>
   <main>
+    <div class="cabecera">
+    <!-- Nombre de la startup -->
+    <h1>La tienda del alquimista</h1>
     <!-- Frase de presentación -->
     <h2><em>Creemos que toda gran transformación comienza con una chispa de curiosidad.</em></h2>
-    <!-- <p>Bienvenido a La Tienda del Alquimista</p> -->
 
     <!-- Descripción -->
     <p>Bienvenido a <em>La Tienda del Alquimista</em>, el lugar donde toda gran creación comienza. Descubre una cuidada
@@ -50,6 +50,28 @@
       consigue los ingredientes perfectos para tu próxima fórmula.</p>
     <p>La tienda de los alquimistas. Adquiere elementos primordiales, minerales, esencias y materiales mágicos para tus
       experimentos. Reúne los ingredientes adecuados y da forma a nuevas creaciones mediante el arte de la alquimia.</p>
+    </div>
+    <div class="elementos">
+      <h3>Elementos primordiales</h3>
+      <label for="agua">Agua</label>
+      <input type="number" id="agua">
+      <button id="btn-agua"></button>
+      <label for="viento">Viento</label>
+      <input type="number" id="viento">
+      <button id="btn-viento"></button>
+      <label for="Fuego">Fuego</label>
+      <input type="number" id="fuego">
+      <button id="btn-fuego"></button>
+      <label for="tierra">Tierra</label>
+      <input type="number" id="tierra">
+      <button id="btn-tierra"></button>
+
+    </div>
+    <div class="cesta">
+      <h3>Cesta de la compra</h3>
+      <p>Resumen:</p>
+      <p>Total cesta</p>
+    </div>
   </main>
 </body>
 
