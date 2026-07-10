@@ -36,45 +36,79 @@
   </header>
   <main>
     <div class="cabecera">
-    <!-- Nombre de la startup -->
-    <h1>La tienda del alquimista</h1>
-    <!-- Frase de presentación -->
-    <h2><em>Creemos que toda gran transformación comienza con una chispa de curiosidad.</em></h2>
+      <!-- Nombre de la startup -->
+      <h1>La tienda del alquimista</h1>
+      <!-- Frase de presentación -->
+      <h2><em>Creemos que toda gran transformación comienza con una chispa de curiosidad.</em></h2>
 
-    <!-- Descripción -->
-    <p>Bienvenido a <em>La Tienda del Alquimista</em>, el lugar donde toda gran creación comienza. Descubre una cuidada
-      selección de
-      ingredientes alquímicos, desde los elementos primordiales —fuego, agua, tierra y aire— hasta minerales, esencias,
-      cristales y componentes mágicos de gran rareza. Ya seas un aprendiz o un maestro alquimista, aquí encontrarás todo
-      lo necesario para experimentar, combinar elementos y dar vida a nuevas creaciones. Explora nuestro catálogo y
-      consigue los ingredientes perfectos para tu próxima fórmula.</p>
-    <p>La tienda de los alquimistas. Adquiere elementos primordiales, minerales, esencias y materiales mágicos para tus
-      experimentos. Reúne los ingredientes adecuados y da forma a nuevas creaciones mediante el arte de la alquimia.</p>
+      <!-- Descripción -->
+      <p>Bienvenido a <em>La Tienda del Alquimista</em>, el lugar donde toda gran creación comienza. Descubre una
+        cuidada
+        selección de
+        ingredientes alquímicos, desde los elementos primordiales —fuego, agua, tierra y aire— hasta minerales,
+        esencias,
+        cristales y componentes mágicos de gran rareza. Ya seas un aprendiz o un maestro alquimista, aquí encontrarás
+        todo
+        lo necesario para experimentar, combinar elementos y dar vida a nuevas creaciones. Explora nuestro catálogo y
+        consigue los ingredientes perfectos para tu próxima fórmula.</p>
+      <p>La tienda de los alquimistas. Adquiere elementos primordiales, minerales, esencias y materiales mágicos para
+        tus
+        experimentos. Reúne los ingredientes adecuados y da forma a nuevas creaciones mediante el arte de la alquimia.
+      </p>
     </div>
     <div class="elementos">
       <h3>Elementos primordiales</h3>
-      <label for="agua">Agua</label>
-      <input type="number" id="agua">
-      <button id="btn-agua"></button>
-      <label for="viento">Viento</label>
-      <input type="number" id="viento">
-      <button id="btn-viento"></button>
-      <label for="Fuego">Fuego</label>
-      <input type="number" id="fuego">
-      <button id="btn-fuego"></button>
-      <label for="tierra">Tierra</label>
-      <input type="number" id="tierra">
-      <button id="btn-tierra"></button>
+
+      <div class="agua">
+        <i class="fa-solid fa-water"></i>
+        <label for="cantidadAgua">Agua (5 €/unidad)</label>
+        <input type="number" id="cantidadAgua">
+        <button id="btnAgua">Añadir a la cesta</button>
+        <div class="mensajeAgua"></div>
+      </div>
+
+      <div class="viento">
+        <i class="fa-solid fa-wind"></i>
+        <label for="cantidadViento">Viento (6 €/unidad)</label>
+        <input type="number" id="cantidadViento">
+        <button id="btnViento">Añadir a la cesta</button>
+        <div class="mensajeViento"></div>
+      </div>
+
+      <div class="fuego">
+        <i class="fa-solid fa-fire"></i>
+        <label for="cantidadFuego">Fuego (7 €/unidad)</label>
+        <input type="number" id="cantidadFuego">
+        <button id="btnFuego">Añadir a la cesta</button>
+        <div class="mensajeFuego"></div>
+      </div>
+
+      <div class="tierra">
+        <i class="fa-solid fa-mound"></i>
+        <label for="cantidadTierra">Tierra (8 €/unidad)</label>
+        <input type="number" id="cantidadTierra">
+        <button id="btnTierra">Añadir a la cesta</button>
+        <div class="mensajeTierra"></div>
+      </div>
 
     </div>
     <div class="cesta">
       <h3>Cesta de la compra</h3>
-      <p>Resumen:</p>
-      <p>Total cesta</p>
+      <p>Resumen: </p>
+      <!-- <div class="mensajeAgua"></div>
+      <div class="mensajeAire"></div>
+      <div class="mensajeFuego"></div>
+      <div class="mensajeTierra"></div> -->
+      <div class="resumen"></div>
+
+      <p>Total cesta: </p>
+      <button id="btnCesta">Calcular</button>
+      <div class="mensajeCesta"></div>
     </div>
   </main>
 </body>
 
+<script src="https://kit.fontawesome.com/ac1029fced.js" crossorigin="anonymous"></script>
 <script src="alquimista.js"></script>
 
 </html>
