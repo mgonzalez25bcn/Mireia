@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -8,26 +8,22 @@ body {
   background-position: center;
   height: 100vh;
   font-family: "Cinzel", serif;
-  /* font-family: "MedievalSharp", cursive; */
-  /* font-family: "Pirata One", system-ui; */
-  /* font-family: "Almendra SC", serif; */
-  /* font-family: "Cormorant Garamond", serif; */
-  /* font-family: "IM Fell English SC", serif; */
+
   color: #014e5a;
 }
 
 main {
   color: black;
   font-size: 1.2em;
-  /* background-color: beige; */
+
 }
 
 h1 {
   font-size: 4rem;
-  text-align: center;
+  text-align: center;witch
   text-shadow: 2px 2px 4px white;
   font-family: "UnifrakturMaguntia", cursive;
-  /* color: #014e5a; */
+
 }
 
 button {
@@ -43,4 +39,256 @@ button {
 button:hover {
   background-color: rgb(248, 248, 156);
   color: black;
+} */
+
+/* Fuente */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Roboto:wght@300;400;500&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+/* 
+body{
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg,#1b1b1b,#2c241b);
+    color:#f5f1e6;
+    padding:40px;
+} */
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-image: url("img/alquimia11.jpg");
+    background-size: cover;          /* Ocupa toda la pantalla */
+    background-position: center;     /* Centra la imagen */
+    background-repeat: no-repeat;    /* No se repite */
+    background-attachment: fixed;    /* Se mantiene fija al hacer scroll */
+    color: #f5f1e6;
+    padding: 40px;
+}
+
+main{
+    max-width:1100px;
+    margin:auto;
+}
+
+/* CABECERA */
+
+.cabecera{
+    /* background:#2b241c; */
+    /* border:2px solid #b89b5e; */
+    background: rgba(27, 39, 66, 0.88);
+    border: 2px solid #d4af37;
+    border-radius:15px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+.cabecera h1{
+    font-family:'Cinzel', serif;
+    font-size:2.8rem;
+    text-align:center;
+    color:#d8b96d;
+    margin-bottom:15px;
+}
+
+.cabecera h2{
+    text-align:center;
+    font-weight:normal;
+    margin-bottom:25px;
+    color:#d9d1b8;
+}
+
+.cabecera p{
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+/* TITULOS */
+
+h3{
+    font-family:'Cinzel', serif;
+    color:#d8b96d;
+    margin-bottom:20px;
+}
+
+/* ELEMENTOS */
+
+.elementos{
+    margin-bottom:35px;
+}
+
+.elementos > div{
+    background: rgba(60, 24, 24, 0.92);
+    border: 1px solid #d4af37;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:18px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+
+    transition:.3s;
+}
+
+.elementos > div:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 15px rgba(0,0,0,.35);
+}
+
+.elementos i{
+    font-size:1.8rem;
+    color:#d8b96d;
+    width:35px;
+    text-align:center;
+}
+
+label{
+    min-width:180px;
+    /* font-weight:bold; */
+}
+
+input{
+    width:120px;
+    padding:8px;
+    border:none;
+    border-radius:6px;
+    text-align:center;
+    background:#f3efe3;
+}
+
+/* BOTONES */
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:#b89b5e;
+    color:#222;
+    /* font-weight:bold; */
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#d8b96d;
+    transform:scale(1.05);
+}
+
+/* MENSAJES */
+
+.mensajeAgua,
+.mensajeViento,
+.mensajeFuego,
+.mensajeTierra,
+.mensajeResumen,
+.mensajeCesta{
+    width:100%;
+    margin-top:10px;
+    color:#cde9b4;
+    /* font-weight:bold; */
+}
+
+/* CESTA */
+
+.cesta{
+    background: rgba(26, 56, 48, 0.88);
+    border: 2px solid #d4af37;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+.cesta p{
+    margin-top:15px;
+    margin-bottom:10px;
+}
+
+/* Colores según el elemento */
+
+.agua i{
+    color:#5bc0eb;
+}
+
+.viento i{
+    color:#d9d9d9;
+}
+
+.fuego i{
+    color:#ff8c42;
+}
+
+.tierra i{
+    color:#8d6e63;
+}
+
+/* Responsive */
+
+@media(max-width:700px){
+
+    .elementos > div{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    input{
+        width:100%;
+    }
+
+    button{
+        width:100%;
+    }
+
+    .cabecera h1{
+        font-size:2rem;
+    }
+}
+
+.menu{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background: rgba(18, 25, 46, 0.92);
+    border-bottom: 2px solid #d4af37;
+    padding:15px 40px;
+    margin-bottom:30px;
+    backdrop-filter:blur(4px);
+}
+
+.logo{
+    font-family:'Cinzel', serif;
+    color:#d8b96d;
+    margin:0;
+    font-size:1.5rem;
+}
+
+.menu ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+    margin:0;
+    padding:0;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#f5f1e6;
+    font-weight:bold;
+    transition:.3s;
+    padding:8px 12px;
+    border-radius:6px;
+}
+
+.menu a:hover{
+    background:#b89b5e;
+    color:#222;
 }

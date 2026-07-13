@@ -16,7 +16,7 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -32,10 +32,19 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
+    <nav class="menu">
+    <h2 class="logo">⚗ La Tienda del Alquimista</h2>
+
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#elementos">Elementos</a></li>
+        <li><a href="#cesta">Cesta</a></li>
+    </ul>
+</nav>
   </header>
   <main>
-    <div class="cabecera">
+    <div class="cabecera" id="inicio">
       <!-- Nombre de la startup -->
       <h1>La tienda del alquimista</h1>
       <!-- Frase de presentación -->
@@ -56,13 +65,13 @@
         experimentos. Reúne los ingredientes adecuados y da forma a nuevas creaciones mediante el arte de la alquimia.
       </p>
     </div>
-    <div class="elementos">
+    <div class="elementos" id="elementos">
       <h3>Elementos primordiales</h3>
 
       <div class="agua">
         <i class="fa-solid fa-water"></i>
         <label for="cantidadAgua">Agua (5 €/unidad)</label>
-        <input type="number" id="cantidadAgua">
+        <input type="number" id="cantidadAgua" placeholder="Unidades">
         <button id="btnAgua">Añadir a la cesta</button>
         <div class="mensajeAgua"></div>
       </div>
@@ -92,7 +101,7 @@
       </div>
 
     </div>
-    <div class="cesta">
+    <div class="cesta" id="cesta">
       <h3>Cesta de la compra</h3>
       <p>Resumen: </p>
       <button id="btnResumen">Resumen</button>
