@@ -1,0 +1,76 @@
+/* Estilo general */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Título */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+/* Etiquetas */
+label {
+    display: block;
+    width: 250px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Campos de texto */
+input {
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #d0d7de;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #4a90e2;
+}
+
+/* Botón */
+button {
+    margin-top: 20px;
+    width: 270px;
+    padding: 12px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Resultado */
+p {
+    margin-top: 25px;
+    font-size: 18px;
+}
+
+#resultado {
+    font-weight: bold;
+    color: #357abd;
+}
