@@ -18,6 +18,14 @@ let totalTierra = document.getElementById('totalTierra')
 const btnTierra = document.getElementById('btnTierra')
 const mensajeTierra = document.querySelector('.mensajeTierra') 
 
+let switchAgua = 0
+let switchViento = 0
+let switchFuego = 0
+let switchTierra = 0
+
+const btnResumen = document.getElementById('btnResumen')
+const mensajeResumen = document.querySelector('.mensajeResumen')
+
 let totalCesta = document.getElementById('totalCesta')
 const btnCesta = document.getElementById('btnCesta')
 const mensajeCesta = document.querySelector('.mensajeCesta')
@@ -26,6 +34,7 @@ btnAgua.addEventListener('click',calcularAgua)
 btnViento.addEventListener('click',calcularViento)
 btnFuego.addEventListener('click',calcularFuego)
 btnTierra.addEventListener('click',calcularTierra)
+btnResumen.addEventListener('click',calcularResumen)
 btnCesta.addEventListener('click',calcularCesta)
 
 function calcularAgua() {
@@ -44,6 +53,9 @@ function calcularAgua() {
     }
     mensajeAgua.innerHTML = `El importe total de Agua es: ${totalAgua} €`
   }
+  if (cantidad > 0) {
+    switchAgua = 1}
+  else {switchAgua = 0}
 }
 
 function calcularViento() {
@@ -62,6 +74,9 @@ function calcularViento() {
     }
     mensajeViento.innerHTML = `El importe total de Viento es: ${totalViento} €`
   }
+  if (cantidad > 0) {
+    switchViento = 1}
+  else {switchViento = 0}
 }
 
 function calcularFuego() {
@@ -80,6 +95,9 @@ function calcularFuego() {
     }
     mensajeFuego.innerHTML = `El importe total de Fuego es: ${totalFuego} €`
   }
+  if (cantidad > 0) {
+    switchFuego = 1}
+  else {switchFuego = 0}
 }
 
 function calcularTierra() {
@@ -98,9 +116,30 @@ function calcularTierra() {
     }
     mensajeTierra.innerHTML = `El importe total de Tierra es: ${totalTierra} €`
   }
+  if (cantidad > 0) {
+    switchTierra = 1}
+  else {switchTierra = 0}
+    console.log(switchTierra)
+}
+
+function calcularResumen() {
+  mensajeResumen.innerHTML = ''
+
+  if ((totalAgua = 0) && (totalViento = 0) && (totalFuego = 0) && (totalTierra = 0)){
+    mensajeResumen.innerHTML = 'La cesta está vacía'
+  } else {
+    if (switchAgua = 1) {
+    mensajeResumen.innerHTML += `El importe total de Agua es: ${totalAgua} €`}
+    if (switchViento = 1) {
+    mensajeResumen.innerHTML += `El importe total de Viento es: ${totalViento} €`}
+    if (switchFuego = 1) {
+    mensajeResumen.innerHTML += `El importe total de Fuego es: ${totalFuego} €`}
+    if (switchTierra = 1) {
+      mensajeResumen.innerHTML += `El importe total de Tierra es: ${totalTierra} €`}
+  }
 }
 
 function calcularCesta() {
   totalCesta = totalAgua + totalViento + totalFuego + totalTierra
-  mensajeCesta.innerHTML = `${totalCesta}`
+  mensajeCesta.innerHTML = `${totalCesta} €`
 }
