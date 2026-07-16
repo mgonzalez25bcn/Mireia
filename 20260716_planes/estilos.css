@@ -1,0 +1,150 @@
+header {
+    background: linear-gradient(135deg, #3678b2 0%, #54d8fd 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.miniTitulo {
+    display: inline-block;
+    margin: 0;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header h1 {
+    margin: 18px 0 12px;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+header h1::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    background: white;
+    border-radius: 10px;
+    margin: 15px auto 0;
+    opacity: .9;
+}
+
+header > p:last-child {
+    margin: 20px auto 0;
+    max-width: 600px;
+    font-size: 1.15rem;
+    opacity: .95;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+    padding: 30px;
+}
+
+.tarjeta {
+    width: 320px;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,.18);
+}
+
+/* Imagen */
+.contenedorImagen {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.contenedorImagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+.tarjeta:hover img {
+    transform: scale(1.08);
+}
+
+/* Icono sobre la imagen */
+.icono {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(255,255,255,.95);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+.contenidoTarjeta {
+    padding: 20px;
+}
+
+.categoria {
+    display: inline-block;
+    background: #eaf4ff;
+    color: #1976d2;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.contenidoTarjeta h2 {
+    margin: 0 0 15px;
+    color: #222;
+    font-size: 1.4rem;
+}
+
+.contenidoTarjeta p {
+    margin: 8px 0;
+    color: #555;
+    font-size: .95rem;
+    line-height: 1.5;
+}
+
+.contenidoTarjeta p:last-child {
+    margin-top: 18px;
+    background: #f8f9fa;
+    border-left: 5px solid #54d8fd;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.contenedorTarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
