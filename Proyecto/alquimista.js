@@ -25,120 +25,166 @@ let totalCesta = document.getElementById('totalCesta')
 const btnCesta = document.getElementById('btnCesta')
 const mensajeCesta = document.querySelector('.mensajeCesta')
 
-precioAgua = 5
-precioViento = 6
-precioFuego = 7
-precioTierra = 8
-totalAgua = 0
-totalViento = 0
-totalFuego = 
-totalTierra = 0
-unidadesAgua = 0
-unidadesViento = 0
-unidadesFuego = 0
-unidadesTierra = 0
-unidadesElemento = 0
-totalElemento = 0
+let totalAgua = 0
+let totalViento = 0
+let totalFuego = 0
+let totalTierra = 0
+let unidadesAgua = 0
+let unidadesViento = 0
+let unidadesFuego = 0
+let unidadesTierra = 0
+let unidadesElemento = 0
+let totalElemento = 0
+const txtAgua = 'agua'
+const txtViento = 'viento'
+const txtFuego = 'fuego'
+const txtTierra = 'tierra'
 
-const agua = {
-  cantidad: cantidadAgua,
-  precio: precioAgua,
-  total: 0,
-  unidades: 0
-};
+var varAgua = {
+  varUnidades: 0,
+  varPrecio: 5,
+  varElemento: txtAgua,
+  varImporteTotal: 0,
+  varCantidadTotal: 0
+}
 
-btnAgua.addEventListener('click', () => {
-  mensajeAgua.innerHTML = calcularElementos(cantidadAgua, precioAgua, agua);
-// btnAgua.addEventListener('click', () => {mensajeAgua.innerHTML = calcularElementos(agua, 'Agua');});
-// btnViento.addEventListener('click', () => {mensajeViento.innerHTML = calcularElementos(cantidadViento, precioViento, 'Viento');});
-// btnFuego.addEventListener('click', () => {mensajeFuego.innerHTML = calcularElementos(cantidadFuego, precioFuego, 'Fuego');});
-// btnTierra.addEventListener('click', () => {mensajeTierra.innerHTML = calcularElementos(cantidadTierra, precioTierra, 'Tierra');});
+var varViento = {
+  varUnidades: 0,
+  varPrecio: 6,
+  varElemento: txtViento,
+  varImporteTotal: 0,
+  varCantidadTotal: 0
+}
+
+var varFuego = {
+  varUnidades: 0,
+  varPrecio: 7,
+  varElemento: txtFuego,
+  varImporteTotal: 0,
+  varCantidadTotal: 0
+}
+
+var varTierra = {
+  varUnidades: 0,
+  varPrecio: 8,
+  varElemento: txtTierra,
+  varImporteTotal: 0,
+  varCantidadTotal: 0
+}
+
+btnAgua.addEventListener('click', () => {mensajeAgua.innerHTML = calcularElementos(varAgua)});
+btnViento.addEventListener('click', () => {mensajeViento.innerHTML = calcularElementos(varViento);});
+btnFuego.addEventListener('click', () => {mensajeFuego.innerHTML = calcularElementos(varFuego);});
+btnTierra.addEventListener('click', () => {mensajeTierra.innerHTML = calcularElementos(varTierra);});
 btnResumen.addEventListener('click',calcularResumen)
 btnCesta.addEventListener('click',totalDeLaCesta)
-btnResetAgua.addEventListener('click',resetAgua)
-btnResetViento.addEventListener('click',resetViento)
-btnResetFuego.addEventListener('click',resetFuego)
-btnResetTierra.addEventListener('click',resetTierra)
+btnResetAgua.addEventListener('click',() => resetElementos(txtAgua))
+btnResetViento.addEventListener('click',() => resetElementos(txtViento))
+btnResetFuego.addEventListener('click',() => resetElementos(txtFuego))
+btnResetTierra.addEventListener('click',() => resetElementos(txtTierra))
 
-function calcularElementos(entUnidades,entPrecioUnidad,entElemento) {
-  let unidades = Number(entUnidades.value)
-  let precioUnidad = entPrecioUnidad
-  let elemento = entElemento
+// ojo - botón reset general
 
-  // unidadesElemento = unidadesElemento + unidades
-  elemento.unidades = elemento.unidades + unidades
+function calcularElementos(entElementos){
+  let elementos = entElementos
 
-  if (elemento.unidades <= 0) {
+  if (elementos.varElemento === txtAgua) {
+    elementos.varUnidades = Number(cantidadAgua.value)
+    cantidadAgua.value = ''
+  }
+  if (elementos.varElemento === txtViento) {
+    elementos.varUnidades = Number(cantidadViento.value)
+    cantidadViento.value = ''
+  }
+  if (elementos.varElemento === txtFuego) {
+    elementos.varUnidades = Number(cantidadFuego.value)
+    cantidadFuego.value = ''
+  }
+  if (elementos.varElemento === txtTierra) {
+    elementos.varUnidades = Number(cantidadTierra.value)
+    cantidadTierra.value = ''
+  }
+
+  if ((elementos.varUnidades <= 0) || (elementos.varUnidades > 50)) {
+    elementos.varUnidades = 0
     return 'Cantidad incorrecta'
-  } else if (elemento.unidades > 50) {
-    return `Has superado el máximo de unidades por pedido <br> Se reinicia tu pedido de ${elemento.nombre}`
-    elemento.unidades = 0
-    elemento.total = 0
-    entUnidades.value = ''
+  }
+
+  elementos.varCantidadTotal = elementos.varCantidadTotal + elementos.varUnidades
+
+  if (elementos.varCantidadTotal > 50) {
+    resetElementos(elementos.varElemento)
+    return `Has superado el máximo de unidades por pedido <br> Se reinicia tu pedido de ${elementos.varElemento}`
   } else {
-    for (let contador=0; contador<unidades; contador++) {
-      // totalElemento = totalElemento + precioUnidad
-      elemento.total = elemento.total + (unidades * precioUnidad)
+    for (let contador=0; contador<elementos.varUnidades; contador++) {
+      elementos.varImporteTotal = elementos.varImporteTotal + elementos.varPrecio
     }
-    return `Llevas un total de ${elemento.unidades} unidades <br> El importe total de ${elemento.nombre} es: ${elemento.total} €`
+
+    return `Llevas un total de ${elementos.varCantidadTotal} unidades <br> El importe total de ${elementos.varElemento} es: ${elementos.varImporteTotal} €`
   }
 }
 
-function resetAgua() {
-  unidadesAgua = 0
-  cantidadAgua.value = ''
-  totalAgua = 0
-  mensajeAgua.innerHTML = ''
-}
+function resetElementos(entElemento) {
+  let elemento = entElemento
 
-function resetViento() {
-  unidadesViento = 0
-  cantidadViento.value = ''
-  totalViento = 0
-  mensajeViento.innerHTML = ''
-}
+  if (elemento === txtAgua) {
+    varAgua.varUnidades = 0,
+    varAgua.varImporteTotal = 0,
+    varAgua.varCantidadTotal = 0
+    cantidadAgua.value = ''
+    mensajeAgua.innerHTML = ''
+  }
 
-function resetFuego() {
-  unidadesFuego = 0
-  cantidadFuego.value = ''
-  totalFuego = 0
-  mensajeFuego.innerHTML = ''
-}
+  if (elemento === txtViento) {
+    varViento.varUnidades = 0,
+    varViento.varImporteTotal = 0,
+    varViento.varCantidadTotal = 0
+    cantidadViento.value = ''
+    mensajeViento.innerHTML = ''
+  }
 
-function resetTierra() {
-  unidadesTierra = 0
-  cantidadTierra.value = ''
-  totalTierra = 0
-  mensajeTierra.innerHTML = ''
-}
+  if (elemento === txtFuego) {
+    varFuego.varUnidades = 0,
+    varFuego.varImporteTotal = 0,
+    varFuego.varCantidadTotal = 0
+    cantidadFuego.value = ''
+    mensajeFuego.innerHTML = ''
+  }
 
-unidadesAgua = cantidadAgua
+  if (elemento === txtTierra) {
+    varTierra.varUnidades = 0,
+    varTierra.varImporteTotal = 0,
+    varTierra.varCantidadTotal = 0
+    cantidadTierra.value = ''
+    mensajeTierra.innerHTML = ''
+  }
+}
 
 function calcularResumen() {
   mensajeResumen.innerHTML = ''
+  mensajeCesta.innerHTML = ''
 
-  if ((totalAgua == 0) && (totalViento == 0) && (totalFuego == 0) && (totalTierra == 0)){
+  if ((varAgua.varImporteTotal == 0) && (varViento.varImporteTotal == 0) && (varFuego.varImporteTotal == 0) && (varTierra.varImporteTotal == 0)){
     mensajeResumen.innerHTML = 'La cesta está vacía'
   } else {
-    if (totalAgua > 0) {
-      mensajeResumen.innerHTML += `Has añadido ${unidadesAgua} unidades de Agua a 5 €. 
-      Importe total de Agua: ${totalAgua} € <br>`}
-    if (totalViento > 0) {
-      mensajeResumen.innerHTML += `Has añadido ${unidadesViento} unidades de Viento a 6 €. 
-      Importe total de Viento: ${totalViento} € <br>`}
-    if (totalFuego > 0) {
-      cantidadF = Number(cantidadFuego.value)
-      mensajeResumen.innerHTML += `Has añadido ${cantidadF} unidades de Fuego a 7 €. 
-      Importe total de Fuego: ${totalFuego} € <br>`}
-    if (totalTierra > 0) {
-      cantidadT = Number(cantidadTierra.value)
-      mensajeResumen.innerHTML += `Has añadido ${cantidadT} unidades de Tierra a 8 €. 
-      Importe total de Tierra: ${totalTierra} € <br>`}
+    if (varAgua.varImporteTotal > 0) {
+      mensajeResumen.innerHTML += `Has añadido ${varAgua.varCantidadTotal} unidades de Agua a 5 €. 
+      Importe total de Agua: ${varAgua.varImporteTotal} € <br>`}
+    if (varViento.varImporteTotal > 0) {
+      mensajeResumen.innerHTML += `Has añadido ${varViento.varCantidadTotal} unidades de Viento a 6 €. 
+      Importe total de Viento: ${varViento.varImporteTotal} € <br>`}
+    if (varFuego.varImporteTotal > 0) {
+      mensajeResumen.innerHTML += `Has añadido ${varFuego.varCantidadTotal} unidades de Fuego a 7 €. 
+      Importe total de Fuego: ${varFuego.varImporteTotal} € <br>`}
+    if (varTierra.varImporteTotal > 0) {
+      mensajeResumen.innerHTML += `Has añadido ${varTierra.varCantidadTotal} unidades de Tierra a 8 €. 
+      Importe total de Tierra: ${varTierra.varImporteTotal} € <br>`}
   }
 }
 
 function calcularCesta() {
-  totalCesta = totalAgua + totalViento + totalFuego + totalTierra
+  totalCesta = varAgua.varImporteTotal + varViento.varImporteTotal + 
+        varFuego.varImporteTotal + varTierra.varImporteTotal
   mensajeCesta.innerHTML = `${totalCesta} €`
 }
 

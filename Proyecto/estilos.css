@@ -169,7 +169,7 @@ button:hover{
     gap:10px;
 }
 
-.cesta h2 i{
+.cesta h2 i, a{
     color:#d4af37;
 }
 
