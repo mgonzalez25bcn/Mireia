@@ -148,3 +148,30 @@ body {
     max-width: 1200px;
     margin: auto;
 }
+
+/* Botón de la tarjeta */
+.btnReservar {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: white;
+    background: linear-gradient(135deg, #3678b2 0%, #54d8fd 100%);
+    border-radius: 12px;
+    transition: all .3s ease;
+    box-shadow: 0 8px 18px rgba(54,120,178,.35);
+}
+
+.btnReservar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(54,120,178,.45);
+    background: linear-gradient(135deg, #2f689a 0%, #43c8ef 100%);
+}
+
+.btnReservar:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 12px rgba(54,120,178,.3);
+}
