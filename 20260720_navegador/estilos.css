@@ -1,0 +1,226 @@
+/* body.modoNocturno{
+  background-color: rgb(33, 33, 33);
+  color: ghostwhite;
+}
+
+main {
+  width: min(70em, 100%);
+  margin: 2em auto;
+}
+
+.panel {
+  border: 0.15em solid gray;
+}
+
+.datos{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.dato{
+  flex: 1 1 12em;
+  border: 1px solid grey;
+} */
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background:#f3f4f6;
+    color:#1f2937;
+    min-height:100vh;
+    transition:0.3s;
+}
+
+/* CABECERA */
+
+.cabecera{
+    max-width:1000px;
+    margin:40px auto;
+    padding:40px;
+    background:#ffffff;
+    border-radius:20px;
+    border:1px solid #d1d5db;
+    transition:0.3s;
+}
+
+.etiqueta{
+    color:#0ea5e9;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:.8rem;
+    margin-bottom:10px;
+}
+
+.cabecera h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+#saludo{
+    color:#6b7280;
+    font-size:1.1rem;
+    margin-bottom:25px;
+}
+
+/* BOTONES */
+
+button{
+    background:#0ea5e9;
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#0284c7;
+    transform:scale(1.05);
+}
+
+/* MAIN */
+
+main{
+    max-width:1000px;
+    margin:auto;
+    padding:0 20px 40px;
+}
+
+.panel{
+    background:#ffffff;
+    border-radius:20px;
+    padding:35px;
+    border:1px solid #d1d5db;
+    transition:.3s;
+}
+
+.tituloSeccion{
+    margin-bottom:30px;
+}
+
+.tituloSeccion h2{
+    font-size:2rem;
+}
+
+/* GRID */
+
+.datos{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+/* TARJETAS */
+
+.dato{
+    background:#f9fafb;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #d1d5db;
+    transition:.3s;
+}
+
+.dato:hover{
+    border-color:#0ea5e9;
+    transform:translateY(-5px);
+}
+
+.dato h3{
+    color:#6b7280;
+    font-size:1rem;
+    margin-bottom:15px;
+}
+
+.dato p{
+    color:#0284c7;
+    font-size:1.6rem;
+    font-weight:bold;
+    word-break:break-word;
+}
+
+/* ACCIONES */
+
+.acciones{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+}
+
+/* ===================== */
+/* MODO OSCURO */
+/* ===================== */
+
+body.modoNocturno{
+    background:#111827;
+    color:#f5f5f5;
+}
+
+body.modoNocturno .cabecera,
+body.modoNocturno .panel{
+    background:#1f2937;
+    border-color:#374151;
+}
+
+body.modoNocturno #saludo{
+    color:#cbd5e1;
+}
+
+body.modoNocturno .etiqueta{
+    color:#38bdf8;
+}
+
+body.modoNocturno .dato{
+    background:#111827;
+    border-color:#374151;
+}
+
+body.modoNocturno .dato h3{
+    color:#94a3b8;
+}
+
+body.modoNocturno .dato p{
+    color:#38bdf8;
+}
+
+body.modoNocturno button{
+    background:#38bdf8;
+    color:#111827;
+}
+
+body.modoNocturno button:hover{
+    background:#ffffff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:700px){
+
+    .cabecera{
+        margin:20px;
+        padding:25px;
+    }
+
+    .cabecera h1{
+        font-size:2.2rem;
+    }
+
+    .datos{
+        grid-template-columns:1fr;
+    }
+
+    .acciones{
+        justify-content:center;
+    }
+}
