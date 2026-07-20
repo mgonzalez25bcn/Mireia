@@ -25,6 +25,9 @@ let totalCesta = document.getElementById('totalCesta')
 const btnCesta = document.getElementById('btnCesta')
 const mensajeCesta = document.querySelector('.mensajeCesta')
 
+let btnComprar = document.getElementById('btnComprar')
+let btnReset = document.getElementById('btnReset')
+
 let totalAgua = 0
 let totalViento = 0
 let totalFuego = 0
@@ -82,6 +85,8 @@ btnResetAgua.addEventListener('click',() => resetElementos(txtAgua))
 btnResetViento.addEventListener('click',() => resetElementos(txtViento))
 btnResetFuego.addEventListener('click',() => resetElementos(txtFuego))
 btnResetTierra.addEventListener('click',() => resetElementos(txtTierra))
+btnComprar.addEventListener('click', comprarCesta)
+btnReset.addEventListener('click', resetCesta)
 
 // ojo - botón reset general
 
@@ -114,7 +119,7 @@ function calcularElementos(entElementos){
 
   if (elementos.varCantidadTotal > 50) {
     resetElementos(elementos.varElemento)
-    return `Has superado el máximo de unidades por pedido <br> Se reinicia tu pedido de ${elementos.varElemento}`
+    return `Has superado el máximo de unidades por pedido <br> Mágicamente se reinicia tu pedido de ${elementos.varElemento}`
   } else {
     for (let contador=0; contador<elementos.varUnidades; contador++) {
       elementos.varImporteTotal = elementos.varImporteTotal + elementos.varPrecio
@@ -191,5 +196,30 @@ function calcularCesta() {
 function totalDeLaCesta() {
   calcularResumen()
   calcularCesta()
+}
+
+function comprarCesta(){
+  if(totalCesta >= 9000){
+    alert('¡Felicidades! 🎉 Ya eres nivel oro 🥇')
+  } 
+
+  if(totalCesta >= 600 && totalCesta < 900){
+    alert('¡Felicidades! 🎉 Ya eres nivel plata 🥈')
+  } 
+
+  if(totalCesta >= 300 && totalCesta < 600){
+    alert('¡Felicidades! 🎉 Ya eres nivel bronce 🥉')
+  } 
+
+  if(totalCesta >= 1 && totalCesta < 300){
+    alert('Compra realizada 💳✨')
+  }
+  if(totalCesta <=0){
+    alert('No has añadido productos a la cesta 😲')
+  }
+}
+
+function resetCesta(){
+  location.reload();
 }
   
