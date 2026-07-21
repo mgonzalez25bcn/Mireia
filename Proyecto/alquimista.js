@@ -2,21 +2,25 @@ let cantidadAgua = document.getElementById('cantidadAgua')
 const btnAgua = document.getElementById('btnAgua')
 const btnResetAgua = document.getElementById('btnResetAgua')
 const mensajeAgua = document.querySelector('.mensajeAgua')
+let stockAgua = document.getElementById('stockAgua')
 
 let cantidadViento = document.getElementById('cantidadViento')
 const btnViento = document.getElementById('btnViento')
 const btnResetViento = document.getElementById('btnResetViento')
 const mensajeViento = document.querySelector('.mensajeViento')
+let stockViento = document.getElementById('stockViento')
 
 let cantidadFuego = document.getElementById('cantidadFuego')
 const btnFuego = document.getElementById('btnFuego')
 const btnResetFuego = document.getElementById('btnResetFuego')
 const mensajeFuego = document.querySelector('.mensajeFuego')
+let stockFuego = document.getElementById('stockFuego')
 
 let cantidadTierra = document.getElementById('cantidadTierra')
 const btnTierra = document.getElementById('btnTierra')
 const btnResetTierra = document.getElementById('btnResetTierra')
 const mensajeTierra = document.querySelector('.mensajeTierra') 
+let stockTierra = document.getElementById('stockTierra')
 
 const btnResumen = document.getElementById('btnResumen')
 const mensajeResumen = document.querySelector('.mensajeResumen')
@@ -88,10 +92,9 @@ btnResetTierra.addEventListener('click',() => resetElementos(txtTierra))
 btnComprar.addEventListener('click', comprarCesta)
 btnReset.addEventListener('click', resetCesta)
 
-// ojo - botón reset general
-
 function calcularElementos(entElementos){
   let elementos = entElementos
+  let varStock = 50
 
   if (elementos.varElemento === txtAgua) {
     elementos.varUnidades = Number(cantidadAgua.value)
@@ -124,6 +127,20 @@ function calcularElementos(entElementos){
     for (let contador=0; contador<elementos.varUnidades; contador++) {
       elementos.varImporteTotal = elementos.varImporteTotal + elementos.varPrecio
     }
+    varStock = varStock - elementos.varCantidadTotal
+
+  if (elementos.varElemento === txtAgua) {
+      stockAgua.textContent = `Stock disponible: ${varStock} unidades`;
+  }
+  if (elementos.varElemento === txtViento) {
+     stockViento.textContent = `Stock disponible: ${varStock} unidades`;
+  }
+  if (elementos.varElemento === txtFuego) {
+      stockFuego.textContent = `Stock disponible: ${varStock} unidades`;
+  }
+  if (elementos.varElemento === txtTierra) {
+     stockTierra.textContent = `Stock disponible: ${varStock} unidades`;
+  }
 
     return `Llevas un total de ${elementos.varCantidadTotal} unidades <br> El importe total de ${elementos.varElemento} es: ${elementos.varImporteTotal} €`
   }
@@ -133,35 +150,39 @@ function resetElementos(entElemento) {
   let elemento = entElemento
 
   if (elemento === txtAgua) {
-    varAgua.varUnidades = 0,
-    varAgua.varImporteTotal = 0,
+    varAgua.varUnidades = 0
+    varAgua.varImporteTotal = 0
     varAgua.varCantidadTotal = 0
     cantidadAgua.value = ''
     mensajeAgua.innerHTML = ''
+    stockAgua.textContent = `Stock disponible: 50 unidades`
   }
 
   if (elemento === txtViento) {
-    varViento.varUnidades = 0,
-    varViento.varImporteTotal = 0,
+    varViento.varUnidades = 0
+    varViento.varImporteTotal = 0
     varViento.varCantidadTotal = 0
     cantidadViento.value = ''
     mensajeViento.innerHTML = ''
+    stockViento.textContent = `Stock disponible: 50 unidades`
   }
 
   if (elemento === txtFuego) {
-    varFuego.varUnidades = 0,
-    varFuego.varImporteTotal = 0,
+    varFuego.varUnidades = 0
+    varFuego.varImporteTotal = 0
     varFuego.varCantidadTotal = 0
     cantidadFuego.value = ''
     mensajeFuego.innerHTML = ''
+    stockFuego.textContent = `Stock disponible: 50 unidades`
   }
 
   if (elemento === txtTierra) {
-    varTierra.varUnidades = 0,
-    varTierra.varImporteTotal = 0,
+    varTierra.varUnidades = 0
+    varTierra.varImporteTotal = 0
     varTierra.varCantidadTotal = 0
     cantidadTierra.value = ''
     mensajeTierra.innerHTML = ''
+    stockTierra.textContent = `Stock disponible: 50 unidades`
   }
 }
 
