@@ -1,28 +1,3 @@
-/* body.modoNocturno{
-  background-color: rgb(33, 33, 33);
-  color: ghostwhite;
-}
-
-main {
-  width: min(70em, 100%);
-  margin: 2em auto;
-}
-
-.panel {
-  border: 0.15em solid gray;
-}
-
-.datos{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-}
-
-.dato{
-  flex: 1 1 12em;
-  border: 1px solid grey;
-} */
-
 /* RESET */
 
 *{
@@ -159,6 +134,94 @@ main{
 }
 
 /* ===================== */
+/* CENTRO DE MENSAJES */
+/* ===================== */
+
+.tituloSeccion{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+#contadorMensajes{
+    color:#6b7280;
+    font-weight:bold;
+    font-size:.95rem;
+}
+
+.formularioMensajes{
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.formularioMensajes input{
+    flex:1;
+    min-width:220px;
+    padding:12px 15px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:1rem;
+    outline:none;
+    transition:.3s;
+}
+
+.formularioMensajes input:focus{
+    border-color:#0ea5e9;
+    box-shadow:0 0 0 3px rgba(14,165,233,.15);
+}
+
+.listaMensajes{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.mensaje{
+    background:#f9fafb;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    padding:18px;
+    transition:.3s;
+}
+
+.mensaje:hover{
+    border-color:#0ea5e9;
+    transform:translateY(-3px);
+}
+
+.mensaje{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+
+    background:#f9fafb;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    padding:18px;
+    transition:.3s;
+}
+
+.mensaje p{
+    margin:0;
+    flex:1;
+    word-break:break-word;
+}
+
+.btnEliminar{
+    flex-shrink:0;
+    padding:8px 16px;
+    font-size:.9rem;
+}
+
+#notificaciones.visible{
+    opacity: 1;
+}
+
+/* ===================== */
 /* MODO OSCURO */
 /* ===================== */
 
@@ -201,6 +264,29 @@ body.modoNocturno button{
 
 body.modoNocturno button:hover{
     background:#ffffff;
+}
+
+body.modoNocturno #contadorMensajes{
+    color:#cbd5e1;
+}
+
+body.modoNocturno .formularioMensajes input{
+    background:#111827;
+    color:#f5f5f5;
+    border-color:#374151;
+}
+
+body.modoNocturno .formularioMensajes input::placeholder{
+    color:#94a3b8;
+}
+
+body.modoNocturno .formularioMensajes input:focus{
+    border-color:#38bdf8;
+}
+
+body.modoNocturno .mensaje{
+    background:#111827;
+    border-color:#374151;
 }
 
 /* RESPONSIVE */
