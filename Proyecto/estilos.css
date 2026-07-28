@@ -69,6 +69,20 @@ h3 {
   color: #f5f2e8;
 }
 
+.experimentos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#listaNuevosElementos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
 .elementos > div {
   background: rgba(60, 24, 24, 0.92);
   border: 1px solid #d4af37;

@@ -114,40 +114,258 @@ btnReset.addEventListener('click', resetCesta)
 
 // Elementos descubiertos
 const descubiertos = {
-    agua: "🌊",
-    viento: "🍃",
-    fuego: "🔥",
-    tierra: "🪴"
+    agua: "🌊 Agua",
+    viento: "🍃 Viento",
+    fuego: "🔥 Fuego",
+    tierra: "🪴Tierra"
 };
 
-// Recetas
-const recetas = {
+// Combinaciones
+const combinaciones = {
 
-    "agua+tierra": {
-        nombre:"diamante",
-        icono:"💎"
-    },
+  "agua+fuego":{
+    nombre:"vapor",
+    icono:"☁️ Vapor"
+  },
+  "fuego+agua":{
+    nombre:"vapor",
+    icono:"☁️ Vapor"
+  },
 
-    "agua+fuego":{
-        nombre:"vapor",
-        icono:"☁️"
-    },
+  "fuego+tierra":{
+    nombre:"lava",
+    icono:"🌋 Lava"
+  },
+  "tierra+fuego":{
+    nombre:"lava",
+    icono:"🌋 Lava"
+  },
 
-    "fuego+tierra":{
-        nombre:"lava",
-        icono:"🌋"
-    },
+  "agua+lava":{
+    nombre:"diamante",
+    icono:"💎 Diamante"
+  },
+  "lava+agua":{
+    nombre:"diamante",
+    icono:"💎 Diamante"
+  },
 
-    "agua+lava":{
-        nombre:"obsidiana",
-        icono:"🪨"
-    },
+  "diamante+fuego":{
+    nombre:"láser",
+    icono:"🔷 Láser"
+  },
+  "fuego+diamante":{
+    nombre:"láser",
+    icono:"🔷 Láser"
+  },
 
-    "diamante+fuego":{
-        nombre:"láser",
-        icono:"🔷"
-    }
+  "agua+viento": {
+    nombre: "lluvia",
+    icono: "🌧️ Lluvia"
+  },
+  "viento+agua": {
+    nombre: "lluvia",
+    icono: "🌧️ Lluvia"
+  },
+
+  "fuego+viento": {
+    nombre: "humo",
+    icono: "💨 Humo"
+  },
+  "viento+fuego": {
+    nombre: "humo",
+    icono: "💨 Humo"
+  },
+
+  "tierra+viento": {
+    nombre: "polvo",
+    icono: "🌪️ Polvo"
+  },
+  "viento+tierra": {
+    nombre: "polvo",
+    icono: "🌪️ Polvo"
+  },
+
+  "lava+tierra": {
+    nombre: "volcán",
+    icono: "🌋 Volcán"
+  },
+  "tierra+lava": {
+    nombre: "volcán",
+    icono: "🌋 Volcán"
+  },
+
+  "lava+vapor": {
+    nombre: "géiser",
+    icono: "♨️ Géiser"
+  },
+  "vapor+lava": {
+    nombre: "géiser",
+    icono: "♨️ Géiser"
+  },
+
+  "agua+diamante": {
+    nombre: "joya",
+    icono: "💍 Joya"
+  },
+  "diamante+agua": {
+    nombre: "joya",
+    icono: "💍 Joya"
+  },
+
+  "fuego+diamante": {
+    nombre: "láser",
+    icono: "🔴 Láser rojo"
+  },
+  "diamante+fuego": {
+    nombre: "láser",
+    icono: "🔴 Láser rojo"
+  },
+
+  "tierra+diamante": {
+    nombre: "tesoro",
+    icono: "💰 Tesoro"
+  },
+  "diamante+tierra": {
+    nombre: "tesoro",
+    icono: "💰 Tesoro"
+  },
+
+  "agua+obsidiana": {
+    nombre: "espejo",
+    icono: "🪞 Espejo"
+  },
+  "obsidiana+obsidiana": {
+    nombre: "espejo",
+    icono: "🪞 Espejo"
+  },
+
+  "fuego+obsidiana": {
+    nombre: "vidrio volcánico",
+    icono: "⚫ Vidrio volcánico"
+  },
+  "obsidiana+fuego": {
+    nombre: "vidrio volcánico",
+    icono: "⚫ Vidrio volcánico"
+  },
+
+  "vapor+viento": {
+    nombre: "nube",
+    icono: "☁️ Nube"
+  },
+  "viento+vapor": {
+    nombre: "nube",
+    icono: "☁️ Nube"
+  },
+
+  "nube+viento": {
+    nombre: "tormenta",
+    icono: "⛈️ Tormenta"
+  },
+  "viento+nube": {
+    nombre: "tormenta",
+    icono: "⛈️ Tormenta"
+  },
+
+  "tormenta+fuego": {
+    nombre: "rayo",
+    icono: "⚡ Rayo"
+  },
+  "fuego+tormenta": {
+    nombre: "rayo",
+    icono: "⚡ Rayo"
+  },
+
+  "agua+planta": {
+    nombre: "flor",
+    icono: "🌸 Flor"
+  },
+  "planta+agua": {
+    nombre: "flor",
+    icono: "🌸 Flor"
+  },
+
+  "agua+tierra": {
+    nombre: "barro",
+    icono: "🟫 Barro"
+  },
+  "tierra+agua": {
+    nombre: "barro",
+    icono: "🟫 Barro"
+  },
+
+  "barro+fuego": {
+    nombre: "cerámica",
+    icono: "🏺 Cerámica"
+  },
+  "fuego+barro": {
+    nombre: "cerámica",
+    icono: "🏺 Cerámica"
+  },
+
+  "cerámica+agua": {
+    nombre: "jarrón",
+    icono: "🏺 Jarrón"
+  },
+  "agua+cerámica": {
+    nombre: "jarrón",
+    icono: "🏺 Jarrón"
+  },
+
+  "viento+barro": {
+    nombre: "adobe",
+    icono: "🧱 Ladrillo"
+  },
+  "barro+viento": {
+    nombre: "adobe",
+    icono: "🧱 Ladrillo"
+  },
+
+  "viento+humo": {
+    nombre: "niebla",
+    icono: "🌫️ Niebla"
+  },
+  "humo+viento": {
+    nombre: "niebla",
+    icono: "🌫️ Niebla"
+  },
+
+  "agua+niebla": {
+    nombre: "rocío",
+    icono: "💧 Rocío"
+  },
+  "niebla+agua": {
+    nombre: "rocío",
+    icono: "💧 Rocío"
+  },
+
+  "fuego+humo": {
+    nombre: "ceniza",
+    icono: "🩶 Ceniza"
+  },
+  "humo+fuego": {
+    nombre: "ceniza",
+    icono: "🩶 Ceniza"
+  },
+
+  "ceniza+tierra": {
+    nombre: "fertilizante",
+    icono: "🌱 Fertilizante"
+  },
+  "tierra+ceniza": {
+    nombre: "fertilizante",
+    icono: "🌱 Fertilizante"
+  },
+
+  "agua+volcán": {
+    nombre: "isla",
+    icono: "🏝️ Isla"
+  },
+  "volcán+agua": {
+    nombre: "isla",
+    icono: "🏝️ Isla"
   }
+}
 
 // Todos los botones de elementos
 document.addEventListener("click", (e) => {
@@ -328,7 +546,7 @@ function resetCesta(){
   location.reload();
 }
 
-//Extra
+//Extra-ini
 function seleccionarElemento(nombre, icono){
 
     if(primerElemento == null){
@@ -338,7 +556,7 @@ function seleccionarElemento(nombre, icono){
             icono
         };
 
-        btnResultado.textContent = `${icono} + --`;
+        btnResultado.textContent = `${icono} + ✨`;
 
         return;
     }
@@ -349,14 +567,14 @@ function seleccionarElemento(nombre, icono){
 
     const clave = `${primerElemento.nombre}+${nombre}`;
 
-    if(recetas[clave]){
-        descubrirElemento(recetas[clave]);
+    if(combinaciones[clave]){
+        descubrirElemento(combinaciones[clave]);
     }
 
     primerElemento = null;
 
     setTimeout(()=>{
-        btnResultado.textContent="-- + --";
+        btnResultado.textContent="✨ + ✨";
     },700);
 
 }
@@ -381,4 +599,4 @@ function descubrirElemento(elemento){
     lista.appendChild(boton);
 
 }
-//Extra
+//Extra-fin
