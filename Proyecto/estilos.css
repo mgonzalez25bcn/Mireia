@@ -58,7 +58,8 @@ h3 {
   margin-bottom: 20px;
 }
 
-.elementos {
+.elementos,
+.experimentos {
   margin-bottom: 35px;
   background: rgba(71, 40, 40, 0.92);
   border: 2px solid #d4af37;

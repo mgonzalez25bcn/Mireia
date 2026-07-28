@@ -27,7 +27,7 @@
     </nav>
   </header>
   <main>
-    <div class="cabecera" id="inicio">
+    <section class="cabecera" id="inicio">
       <!-- Nombre de la startup -->
       <h1>La tienda del alquimista</h1>
       <!-- Frase de presentación -->
@@ -42,8 +42,8 @@
       <p>La tienda de los alquimistas. Adquiere los cuatro elementos primordiales —fuego, agua, tierra y aire— y
         comienza tus experimentos. Combínalos mediante el arte de la alquimia para descubrir nuevas posibilidades y
         crear fórmulas únicas.</p>
-    </div>
-    <div class="elementos" id="elementos">
+    </section>
+    <section class="elementos" id="elementos">
       <h3>✨ Elementos primordiales ✨</h3>
 
       <div class="agua">
@@ -82,9 +82,43 @@
         <p id="stockTierra">Stock disponible por compra: 50 unidades</p>
       </div>
 
+    </section>
+
+    <!-- <section class="experimentos" id="experimentos">
+      <h3>Zona de experimentos</h3>
+      <button id="btnExAgua">🌊</button>
+      <button id="btnExViento">🍃</button>
+      <button id="btnExFuego">🔥</button>
+      <button id="btnExTierra">🪴</button>
+      
+      <p class="mezclas"></p>
+      <button id="btnResultado"> -- + -- </button>
+
+      <div id="listaNuevosElementos">
+        <p class="aviso">Empieza a combinar elementos</p>
+      </div>
+    </section> -->
+
+    <section class="experimentos" id="experimentos">
+    <h3>Zona de experimentos</h3>
+
+    <div class="elementosIniciales">
+        <button class="elemento" data-elemento="agua">🌊</button>
+        <button class="elemento" data-elemento="viento">🍃</button>
+        <button class="elemento" data-elemento="fuego">🔥</button>
+        <button class="elemento" data-elemento="tierra">🪴</button>
     </div>
 
-    <div class="cesta" id="cesta">
+    <!-- Aquí se mostrará la combinación actual -->
+    <button id="btnResultado">-- + --</button>
+
+    <!-- Aquí aparecerán los nuevos elementos descubiertos -->
+    <div id="listaNuevosElementos">
+        <p class="aviso">Empieza a combinar elementos</p>
+    </div>
+</section>
+
+    <section class="cesta" id="cesta">
       <h3>🧺 Cesta de la compra 🧺</h3>
 
       <div class="bloqueCesta">
@@ -109,7 +143,7 @@
         <button id="btnReset">Vaciar la cesta</button>
       </div>
       <a href="#inicio">Ir a inicio</a>
-    </div>
+    </section>
   </main>
 </body>
 

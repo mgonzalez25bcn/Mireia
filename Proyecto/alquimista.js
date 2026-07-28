@@ -32,6 +32,12 @@ const mensajeCesta = document.querySelector('.mensajeCesta')
 const btnComprar = document.getElementById('btnComprar')
 const btnReset = document.getElementById('btnReset')
 
+//extra
+const btnResultado = document.getElementById("btnResultado");
+const lista = document.getElementById("listaNuevosElementos");
+
+let primerElemento = null;
+
 let totalAgua = 0
 let totalViento = 0
 let totalFuego = 0
@@ -105,6 +111,56 @@ btnResetTierra.addEventListener('click',() => resetElementos(txtTierra))
 
 btnComprar.addEventListener('click', comprarCesta)
 btnReset.addEventListener('click', resetCesta)
+
+// Elementos descubiertos
+const descubiertos = {
+    agua: "🌊",
+    viento: "🍃",
+    fuego: "🔥",
+    tierra: "🪴"
+};
+
+// Recetas
+const recetas = {
+
+    "agua+tierra": {
+        nombre:"diamante",
+        icono:"💎"
+    },
+
+    "agua+fuego":{
+        nombre:"vapor",
+        icono:"☁️"
+    },
+
+    "fuego+tierra":{
+        nombre:"lava",
+        icono:"🌋"
+    },
+
+    "agua+lava":{
+        nombre:"obsidiana",
+        icono:"🪨"
+    },
+
+    "diamante+fuego":{
+        nombre:"láser",
+        icono:"🔷"
+    }
+  }
+
+// Todos los botones de elementos
+document.addEventListener("click", (e) => {
+
+    if (!e.target.classList.contains("elemento")) return;
+
+    const nombre = e.target.dataset.elemento;
+    const icono = e.target.textContent;
+
+    seleccionarElemento(nombre, icono);
+
+});
+//extra
 
 function calcularElementos(entElementos){
   let elementos = entElementos
@@ -271,3 +327,58 @@ function comprarCesta(){
 function resetCesta(){
   location.reload();
 }
+
+//Extra
+function seleccionarElemento(nombre, icono){
+
+    if(primerElemento == null){
+
+        primerElemento = {
+            nombre,
+            icono
+        };
+
+        btnResultado.textContent = `${icono} + --`;
+
+        return;
+    }
+
+    // Segundo elemento
+    btnResultado.textContent =
+        `${primerElemento.icono} + ${icono}`;
+
+    const clave = `${primerElemento.nombre}+${nombre}`;
+
+    if(recetas[clave]){
+        descubrirElemento(recetas[clave]);
+    }
+
+    primerElemento = null;
+
+    setTimeout(()=>{
+        btnResultado.textContent="-- + --";
+    },700);
+
+}
+
+function descubrirElemento(elemento){
+
+    // Ya descubierto
+    if(descubiertos[elemento.nombre]) return;
+
+    descubiertos[elemento.nombre] = elemento.icono;
+
+    // Elimina el mensaje
+    const aviso = lista.querySelector(".aviso");
+    if(aviso) aviso.remove();
+
+    const boton = document.createElement("button");
+
+    boton.classList.add("elemento");
+    boton.dataset.elemento = elemento.nombre;
+    boton.textContent = elemento.icono;
+
+    lista.appendChild(boton);
+
+}
+//Extra
