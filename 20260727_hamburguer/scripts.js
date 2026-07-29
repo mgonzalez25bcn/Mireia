@@ -28,12 +28,26 @@ let cajaMovimiento = document.querySelector('.controlEspacio')
 const mosca = document.querySelector('.mosca')
 const btnComienzo = document.getElementById('btnComienzo')
 const btnParo = document.getElementById('btnParo')
+
 //Busca, desde el elemento .mosca, el elemento contenedor más cercano 
 // que tenga la clase .controlEspacio
 const cajaCursor = mosca.closest('.controlEspacio')
 
 let posInicial = {left: 0, top: 0}
 let movimiento = false
+
+const escapista = document.querySelector('.cajaEscapista')
+const btnInicioEscape = document.getElementById('btnInicioEscape')
+const btnFinEscape = document.getElementById('btnFinEscape')
+const contenedor = escapista.closest('.controlEspacio')
+
+let escape = false
+
+const btnMostrar = document.getElementById('btnMostrar')
+const btnOcultar = document.getElementById('btnOcultar')
+const modal = document.querySelector('.modal')
+
+const btnNotificar = document.getElementById('btnNotificar')
 
 //Listeners
 
@@ -105,6 +119,49 @@ btnParo.addEventListener('click', ()=>{
   mosca.style.top = 0
 })
 
+escapista.addEventListener('mouseover', ()=>{
+  if(!escape) return
+
+  const zonaEscape = contenedor.getBoundingClientRect()
+
+  const maxX = zonaEscape.width - escapista.offsetWidth
+  const maxY = zonaEscape.height - escapista.offsetHeight
+
+  const x = Math.random() * maxX
+  const y = Math.random() * maxY
+
+  escapista.style.left = x + 'px'
+  escapista.style.top = y + 'px'
+})
+
+btnInicioEscape.addEventListener('click', ()=>{
+  escape = true
+})
+
+btnFinEscape.addEventListener('click', ()=>{
+  escape = false
+})
+
+btnMostrar.addEventListener('click', ()=>{
+  modal.classList.add('mostrar')
+})
+
+btnOcultar.addEventListener('click', ()=>{
+  modal.classList.remove('mostrar')
+})
+
+btnNotificar.addEventListener('click', ()=>{
+  const nota = document.createElement('div')
+  nota.textContent = "¡Date por enterado! \n Esta nota desaparece en 3 segundos"
+  nota.classList.add('notificacion')
+  document.body.appendChild(nota)
+  setTimeout(()=>
+    nota.remove(), 3000
+  )
+})
+
+//Funciones
+
 function iniciarContador() {
   if(intervaloId === null){
     intervaloId = setInterval(()=>{
@@ -123,6 +180,7 @@ function detenerContador() {
 
 function seguirMouse(e){
   if(!movimiento) return
+
   const corral = cajaCursor.getBoundingClientRect()
 
   const offsetX = e.clientX - corral.left
