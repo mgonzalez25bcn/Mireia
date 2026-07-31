@@ -1,0 +1,350 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+</style>
+
+/* ======== RESET ======== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: radial-gradient(circle at center, #0b5d2a, #063d1c 60%, #02160a);
+    color:white;
+    min-height:100vh;
+}
+
+/* ======== HEADER ======== */
+
+header{
+    text-align:center;
+    padding:30px 20px;
+    background:linear-gradient(90deg,#6b0000,#b30000,#6b0000);
+    border-bottom:4px solid gold;
+    box-shadow:0 5px 15px rgba(0,0,0,.5);
+}
+
+header h1{
+    font-family: "Cinzel", serif;
+    /* font-size:3rem; */
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    color:gold;
+    /* text-shadow:3px 3px 8px black; */
+    text-shadow: 
+       0 2px 0 #8b6c16,
+       0 0 20px rgba(212, 175, 55, 0.35),
+       0 8px 30px #000;
+    margin-bottom:10px;
+}
+
+header h1::before,
+header h1::after {
+  content: " ♦ ♦ ";
+  color: black;
+  font-size: 0.35em;
+  vertical-align: middle;
+}
+
+header p {
+  max-width: 700px;
+  margin: 18px auto 0;
+  letter-spacing: 2px;
+}
+
+/* ======== CONTENEDOR ======== */
+
+.contenedor{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+
+/* ======== TARJETAS ======== */
+
+.estacion{
+    background:#111;
+    border:3px solid gold;
+    border-radius:20px;
+    padding:25px;
+    position:relative;
+    box-shadow:
+    0 0 15px rgba(255,215,0,.4),
+    inset 0 0 10px rgba(255,255,255,.05);
+    transition:.3s;
+}
+
+.estacion:hover{
+    transform:translateY(-8px);
+    box-shadow:
+    0 0 30px gold,
+    0 0 10px red;
+}
+
+/* Número */
+
+.numEstacion{
+    position:absolute;
+    top:-18px;
+    right:-18px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:gold;
+    color:#222;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    font-size:1.3rem;
+    border:4px solid white;
+}
+
+/* ======== TITULOS ======== */
+
+h2{
+    color:gold;
+    margin-bottom:10px;
+}
+
+h3{
+    color:#ffd700;
+}
+
+.estacion p{
+    margin-bottom:15px;
+}
+
+/* ======== INPUTS ======== */
+
+.zona-controles{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin:20px 0;
+}
+
+input,
+select{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#222;
+    color:white;
+    font-size:1rem;
+    border:2px solid #555;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:gold;
+}
+
+/* ===========================
+   BOTONES
+=========================== */
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    background:linear-gradient(180deg,#ffd54f,#d4a017);
+    color:#1b1b1b;
+    border:2px solid #ffe082;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:all .25s ease;
+    box-shadow:0 5px 12px rgba(0,0,0,.4);
+}
+
+button:hover{
+    background:linear-gradient(180deg,#ffe082,#fbc02d);
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(255,215,0,.6);
+}
+
+button:active{
+    transform:translateY(1px);
+    box-shadow:0 3px 8px rgba(0,0,0,.5);
+}
+
+/* ===========================
+   RESULTADOS
+=========================== */
+
+.resultadosRedondeos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.resultadosRedondeos article{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+
+    min-height:180px;
+
+    padding:18px;
+
+    background:linear-gradient(180deg,#222,#111);
+    border:2px solid gold;
+    border-radius:15px;
+
+    text-align:center;
+
+    transition:.25s;
+}
+
+.resultadosRedondeos article:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 15px rgba(255,215,0,.5);
+}
+
+.resultadosRedondeos span{
+    font-size:1rem;
+    font-weight:bold;
+    color:gold;
+}
+
+.resultadosRedondeos p{
+    margin:18px 0;
+    font-size:2.8rem;
+    font-weight:bold;
+    color:#ff5555;
+    text-shadow:0 0 10px rgba(255,0,0,.5);
+}
+
+.resultadosRedondeos small{
+    color:#ddd;
+    line-height:1.3;
+}
+
+
+/* En móviles */
+
+@media (max-width:700px){
+
+    .resultadosRedondeos{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ======== PANTALLA ======== */
+
+.pantalla{
+    background:black;
+    border:3px solid lime;
+    border-radius:10px;
+    padding:20px;
+    text-align:center;
+    margin:20px 0;
+    box-shadow:0 0 20px lime;
+}
+
+#numeroAleatorio{
+    font-size:2rem;
+    color:#00ff66;
+    font-family:monospace;
+}
+
+/* ======== DADOS ======== */
+
+.dado,
+#dadoJugador,
+#dadoMaquina{
+    width:90px;
+    height:90px;
+    background:white;
+    color:black;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2.4rem;
+    font-weight:bold;
+    margin:20px auto;
+    box-shadow:0 0 15px rgba(255,255,255,.5);
+}
+
+/* ======== HISTORIAL ======== */
+
+#historial{
+    margin-top:20px;
+    background:#181818;
+    border-radius:15px;
+    padding:15px;
+    border:2px solid #444;
+}
+
+#listaLanzamientos{
+    margin-top:10px;
+    color:#ddd;
+}
+
+/* ======== DUELO ======== */
+
+.dueloDados{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    margin-top:25px;
+}
+
+.dueloDados article{
+    text-align:center;
+}
+
+.versus{
+    font-size:2rem;
+    color:red;
+    font-weight:bold;
+    text-shadow:0 0 15px red;
+}
+
+/* ======== MARCADORES ======== */
+
+.marcadores{
+    background:#181818;
+    border-radius:15px;
+    border:2px solid gold;
+    padding:15px;
+}
+
+.marcadores p{
+    margin:8px 0;
+}
+
+/* ======== RESPONSIVE ======== */
+
+@media (max-width:768px){
+
+    .contenedor{
+        grid-template-columns:1fr;
+    }
+
+    .resultadosRedondeos{
+        flex-direction:column;
+    }
+
+    .dueloDados{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    header h1{
+        font-size:2.2rem;
+    }
+}
