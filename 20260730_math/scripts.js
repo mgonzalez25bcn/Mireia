@@ -91,7 +91,7 @@ btnJugarRonda.addEventListener('click', ()=>{
       resultadoDuelo.textContent = `Ganas la ronda: ${resultadoJugador} contra ${resultadoMaquina}`
     } else if(resultadoJugador < resultadoMaquina){
       ptsMaquina++
-      resultadoDuelo.textContent = `Ganas la ronda: ${resultadoMaquina} contra ${resultadoJugador}`
+      resultadoDuelo.textContent = `La máquina gana: ${resultadoMaquina} contra ${resultadoJugador}`
     } else {
       resultadoDuelo.textContent = `Empate a ${resultadoJugador}`
     }

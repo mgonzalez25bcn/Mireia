@@ -1,0 +1,111 @@
+/* Fondo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 40px 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Título */
+h1 {
+    color: #667eea;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #667eea;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/* Texto */
+body > p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Inputs */
+input { 
+    width: 300px;
+    padding: 13px 15px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Cuando haces clic en el input */
+input:focus {
+    border-color: #764ba2;
+}
+
+/* Botón */
+button {
+    padding: 13px 20px;
+    margin-left: 8px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+/* Efecto al pasar el ratón */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(118, 75, 162, 0.3);
+}
+
+/* Mensaje */
+#mensajes {
+    color: #764ba2;
+    font-weight: bold;
+    min-height: 24px;
+    margin-top: 25px;
+}
+
+/* Lista */
+#lista {
+    width: 450px;
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
+}
+
+/* Cada deseo */
+#lista li {
+    background-color: #f5f6ff;
+    border-left: 5px solid #667eea;
+
+    padding: 15px 20px;
+    margin: 10px 0;
+
+    border-radius: 8px;
+
+    text-align: left;
+    font-size: 17px;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+    transition: 0.2s;
+}
+
+/* Efecto al pasar por encima de un deseo */
+#lista li:hover {
+    transform: translateX(5px);
+    background-color: #eef0ff;
+}
