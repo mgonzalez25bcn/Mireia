@@ -1,92 +1,104 @@
 // Declaraciones
-const inputDeseo = document.getElementById('deseo')
-const btnAñadir = document.getElementById('btnAñadir')
-const btnUrgente = document.getElementById('btnUrgente')
-const lista = document.getElementById('lista')
-const mensajes = document.getElementById('mensajes')
-let deseos = []
+const inputDeseo = document.getElementById("deseo");
+const btnAñadir = document.getElementById("btnAñadir");
+const btnUrgente = document.getElementById("btnUrgente");
+const lista = document.getElementById("lista");
+const mensajes = document.getElementById("mensajes");
+let deseos = [];
+// let pruebaDeseos = ['viajar', 'unicornio']
+const deseosGuardados = localStorage.getItem("deseos");
 
-const btnBuscar = document.getElementById('btnBuscar')
-const inputBusqueda = document.getElementById('busqueda')
+if (deseosGuardados !== null) {
+  deseos = JSON.parse(deseosGuardados);
+}
 
-const origen = document.getElementById('origen')
-const nuevo = document.getElementById('nuevo')
-const btnEditar = document.getElementById('btnEditar')
+// Prueba inicial localstorage
+// const deseosTexto = JSON.stringify(pruebaDeseos)
+// localStorage.setItem('pruebaDeseos', deseosTexto)
+// console.log(deseosTexto)
+
+const btnBuscar = document.getElementById("btnBuscar");
+const inputBusqueda = document.getElementById("busqueda");
+
+const origen = document.getElementById("origen");
+const nuevo = document.getElementById("nuevo");
+const btnEditar = document.getElementById("btnEditar");
+
+mostrarDeseos();
 
 // Listeners
-btnAñadir.addEventListener('click', ()=>{
-  const deseo = inputDeseo.value.trim()
-  inputDeseo.value = ''
-  if(deseo.length === 0){
-    mensajes.textContent = '¡Desea algo!'
-    return
+btnAñadir.addEventListener("click", () => {
+  const deseo = inputDeseo.value.trim();
+  inputDeseo.value = "";
+  if (deseo.length === 0) {
+    mensajes.textContent = "¡Desea algo!";
+    return;
   }
 
   // Verificar si el elemento está ya en el array (o no)
-  if (deseos.includes(deseo)){
-    mensajes.textContent = 'Esto lo desas mucho...'
-    return
+  if (deseos.includes(deseo)) {
+    mensajes.textContent = "Esto lo desas mucho...";
+    return;
   }
 
-  mensajes.textContent = ''
-  deseos.push(deseo)
-  console.log(deseos)
-  mostrarDeseos()
-})
+  mensajes.textContent = "";
+  deseos.push(deseo);
+  mostrarDeseos();
+});
 
-btnUrgente.addEventListener('click', ()=>{
-  const deseo = inputDeseo.value.trim()
-  inputDeseo.value = ''
-  if(deseo.length === 0){
-    mensajes.textContent = '¡Desea algo!'
-    return
+btnUrgente.addEventListener("click", () => {
+  const deseo = inputDeseo.value.trim();
+  inputDeseo.value = "";
+  if (deseo.length === 0) {
+    mensajes.textContent = "¡Desea algo!";
+    return;
   }
 
   // Verificar si el elemento está ya en el array (o no)
-  if (deseos.includes(deseo)){
-    mensajes.textContent = 'Esto lo desas mucho...'
-    return
+  if (deseos.includes(deseo)) {
+    mensajes.textContent = "Esto lo desas mucho...";
+    return;
   }
 
-  mensajes.textContent = ''
-  deseos.unshift(deseo)
-  console.log(deseos)
-  mostrarDeseos()
-})
+  mensajes.textContent = "";
+  deseos.unshift(deseo);
+  mostrarDeseos();
+});
 
-btnBuscar.addEventListener('click', ()=>{
-  const texto = inputBusqueda.value.trim()
-  const posicion = deseos.indexOf(texto)
-  if(posicion === -1){
-    mensajes.textContent = 'Tú no tienes este deseo'
+btnBuscar.addEventListener("click", () => {
+  const texto = inputBusqueda.value.trim();
+  const posicion = deseos.indexOf(texto);
+  if (posicion === -1) {
+    mensajes.textContent = "Tú no tienes este deseo";
   } else {
-    mensajes.textContent = `Tu deseo está en la posición ${posicion+1} y en el índice ${posicion}`
+    mensajes.textContent = `Tu deseo está en la posición ${posicion + 1} y en el índice ${posicion}`;
   }
-})
+});
 
-btnEditar.addEventListener('click', ()=>{
-  const textoOriginal = origen.value.trim()
-  const textoNuevo = nuevo.value.trim() 
+btnEditar.addEventListener("click", () => {
+  const textoOriginal = origen.value.trim();
+  const textoNuevo = nuevo.value.trim();
 
-  const posicion = deseos.indexOf(textoOriginal)
-  if(posicion === -1){
-    mensajes.textContent = 'Tú nunca has deseado esto...'
-    return
-  } 
+  const posicion = deseos.indexOf(textoOriginal);
+  if (posicion === -1) {
+    mensajes.textContent = "Tú nunca has deseado esto...";
+    return;
+  }
 
-  deseos[posicion] = textoNuevo
-  mostrarDeseos()
-  mensajes.textContent = 'Deseo actualizado ✨'
-
-})
+  deseos[posicion] = textoNuevo;
+  mostrarDeseos();
+  mensajes.textContent = "Deseo actualizado ✨";
+});
 
 // Funciones
-function mostrarDeseos(){
-  lista.innerHTML = ''
+function mostrarDeseos() {
+  lista.innerHTML = "";
 
-  for(let i = 0; i < deseos.length; i++){
-    const li = document.createElement('li')
-    li.textContent = deseos[i]
-    lista.appendChild(li)
+  for (let i = 0; i < deseos.length; i++) {
+    const li = document.createElement("li");
+    li.textContent = deseos[i];
+    lista.appendChild(li);
   }
+
+  localStorage.setItem("deseos", JSON.stringify(deseos));
 }
