@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  transition:
+    background 1s ease,
+    color 1s ease;
+
+  overflow-x: hidden;
+}
+
+
+/* ========================================
+   FONDO DE DÍA
+======================================== */
+
+body.dia {
+  background:
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(255, 230, 120, 0.8),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #168fe8 0%,
+      #45b8f5 45%,
+      #8ed8ff 100%
+    );
+}
+
+
+/* ========================================
+   FONDO DE NOCHE
+======================================== */
+
+body.noche {
+  background:
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(120, 150, 255, 0.25),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #07142f 0%,
+      #122b59 45%,
+      #294b7a 100%
+    );
+}
+
+
+/* ========================================
+   CONTENEDOR
+======================================== */
+
+.contenedor {
+  width: 100%;
+  max-width: 620px;
+}
+
+
+/* ========================================
+   TÍTULO PRINCIPAL
+======================================== */
+
+h1 {
+  text-align: center;
+
+  font-size: 2.8rem;
+  font-weight: 800;
+
+  margin: 0 0 25px;
+
+  letter-spacing: -1.5px;
+
+  text-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ========================================
+   BOTÓN
+======================================== */
+
+#btnTiempo {
+  display: block;
+
+  margin: 0 auto 25px;
+
+  padding: 14px 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  backdrop-filter: blur(10px);
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+#btnTiempo:hover {
+  background: rgba(255, 255, 255, 0.3);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+#btnTiempo:active {
+  transform: translateY(0);
+}
+
+
+/* ========================================
+   MENSAJE
+======================================== */
+
+#mensaje {
+  text-align: center;
+
+  font-size: 0.9rem;
+
+  opacity: 0.9;
+}
+
+
+/* ========================================
+   TARJETA PRINCIPAL
+======================================== */
+
+#resultado {
+  position: relative;
+
+  padding: 32px;
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.14);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+
+  animation: aparecer 0.6s ease;
+}
+
+
+/* Brillo decorativo */
+
+#resultado::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  top: -100px;
+  right: -80px;
+
+  pointer-events: none;
+}
+
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ========================================
+   CABECERA
+======================================== */
+
+.cabecera-tiempo {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+
+
+.fecha {
+  margin: 0 0 5px;
+
+  font-size: 0.95rem;
+
+  text-transform: capitalize;
+
+  opacity: 0.8;
+}
+
+
+.hora {
+  margin: 0;
+
+  font-size: 1.1rem;
+
+  font-weight: 600;
+}
+
+
+.icono-dia {
+  font-size: 4rem;
+
+  filter:
+    drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+
+  animation: flotar 4s ease-in-out infinite;
+}
+
+
+@keyframes flotar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* ========================================
+   TEMPERATURA
+======================================== */
+
+.temperatura {
+  display: flex;
+
+  align-items: flex-start;
+
+  margin-top: 5px;
+}
+
+
+.temperatura-numero {
+  font-size: 7rem;
+
+  line-height: 0.95;
+
+  font-weight: 800;
+
+  letter-spacing: -7px;
+
+  text-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.temperatura-grados {
+  font-size: 2rem;
+
+  font-weight: 500;
+
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+
+.estado {
+  margin: 12px 0 30px;
+
+  font-size: 1rem;
+
+  opacity: 0.85;
+}
+
+
+/* ========================================
+   GRID DE DATOS
+======================================== */
+
+.datos-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+
+.dato {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 16px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  transition: all 0.25s ease;
+}
+
+
+.dato:hover {
+  background: rgba(255, 255, 255, 0.17);
+
+  transform: translateY(-2px);
+}
+
+
+.dato-icono {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  font-size: 1.3rem;
+}
+
+
+.dato-titulo {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 0.72rem;
+
+  opacity: 0.65;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+
+.dato strong {
+  font-size: 1rem;
+}
+
+
+/* ========================================
+   UBICACIÓN
+======================================== */
+
+.ubicacion {
+  margin-top: 28px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+.ubicacion h2 {
+  margin: 0 0 18px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+
+.coordenadas {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px 20px;
+
+  font-size: 0.8rem;
+}
+
+
+.coordenadas span {
+  opacity: 0.55;
+}
+
+
+.coordenadas strong {
+  text-align: right;
+
+  font-weight: 500;
+}
+
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 25px 15px;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+
+    margin-top: 10px;
+  }
+
+  #resultado {
+    padding: 24px;
+
+    border-radius: 25px;
+  }
+
+  .temperatura-numero {
+    font-size: 5.5rem;
+  }
+
+  .icono-dia {
+    font-size: 3rem;
+  }
+
+  .datos-grid {
+    grid-template-columns: 1fr;
+  }
+}
