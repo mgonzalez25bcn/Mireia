@@ -3,20 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mireia González Brull</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Mireia González Brull | CV</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <h1>Mireia González Brull</h1>
-  <div class="descripcion">
-    <h2>Descripción</h2>
-  </div>
-  <div class="estudios">
-    <h2>Estudios</h2>
-  </div>
-  <div class="experiencia">
-    <h2>Experiencia</h2>
-  </div>
-  <script src='curriculum.js'></script>
+  <header class="site-header">
+    <a href="#inicio" class="logo">MGB</a>
+
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+    <nav id="navLinks" class="nav-links">
+      <a href="#perfil">Perfil</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#formacion">Formación</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">☾</button>
+  </header>
+
+  <main>
+    <section id="inicio" class="principal">
+      <div class="principal-grid">
+        <div class="principal-content">
+          <p class="eyebrow" id="principalEyebrow"></p>
+          <h1 id="principalName"></h1>
+          <p class="principal-role" id="principalRole"></p>
+          <p class="principal-intro" id="principalIntro"></p>
+
+          <div class="principal-actions">
+            <a href="#contacto" class="btn btn-primary">Contactar</a>
+            <a href="#experiencia" class="btn btn-secondary">Ver experiencia</a>
+          </div>
+        </div>
+
+        <div class="principal-card">
+          <div class="principal-card-top">
+            <span class="period" id="experienceYears"></span>
+            <span id="experienceText"></span>
+          </div>
+          <div id="miniStats" class="mini-stats"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfil" class="section">
+      <div class="section-heading">
+        <p class="section-label">Perfil</p>
+        <h2>Experiencia técnica y enfoque profesional</h2>
+      </div>
+
+      <div class="profile-grid">
+        <div id="profileText"></div>
+        <div id="competencies" class="competencies"></div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section section-soft">
+      <div class="heading-row">
+        <div class="section-heading">
+          <p class="section-label">Trayectoria</p>
+          <h2>Experiencia profesional</h2>
+        </div>
+        <div id="experienceFilters" class="filters"></div>
+      </div>
+
+      <div id="experienceList" class="timeline"></div>
+    </section>
+
+    <section id="formacion" class="section">
+      <div class="section-heading">
+        <p class="section-label">Formación</p>
+        <h2>Estudios y especialización</h2>
+      </div>
+      <div id="educationList" class="education-grid"></div>
+    </section>
+
+    <section id="habilidades" class="section section-soft">
+      <div class="section-heading">
+        <p class="section-label">Habilidades</p>
+        <h2>Herramientas, tecnologías y conocimientos</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skills-panel">
+          <h3>Competencias técnicas</h3>
+          <div id="technicalSkills"></div>
+        </div>
+
+        <div class="skills-panel">
+          <h3>Otros conocimientos</h3>
+          <div id="knowledgeTags" class="tags"></div>
+
+          <h3 class="subheading">Idiomas</h3>
+          <div id="languagesList" class="languages"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+      <div class="contact-card">
+        <div>
+          <p class="section-label">Contacto</p>
+          <h2>Hablemos</h2>
+          <p id="contactIntro"></p>
+        </div>
+        <div id="contactList" class="contact-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p id="footerText"></p>
+  </footer>
+
+  <script src="curriculum.js"></script>
 </body>
 </html>
